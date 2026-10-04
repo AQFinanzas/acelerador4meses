@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0074)file:///Users/aqfinanzas/Downloads/Acelerador-Excedente-4-meses%20(5).html -->
+<!-- saved from url=(0074)file:///Users/aqfinanzas/Downloads/Acelerador-Excedente-4-meses%20(6).html -->
 <html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -100,9 +100,9 @@
   button.ben:hover{transform:translateY(-3px);box-shadow:0 20px 40px -22px rgba(239,75,4,.55)}
   button.ben:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
   .more-hint{display:inline-block;margin-top:12px;font-size:13px;font-weight:600;color:var(--orange);background:var(--orange-soft);border-radius:999px;padding:4px 12px}
-  .modal{position:fixed;inset:0;background:rgba(20,18,72,.55);display:none;align-items:center;justify-content:center;padding:16px;z-index:50;backdrop-filter:blur(3px)}
+  .modal{position:fixed;top:0;left:0;right:0;height:100vh;height:100dvh;background:rgba(20,18,72,.55);display:none;align-items:center;justify-content:center;padding:16px;z-index:50;backdrop-filter:blur(3px)}
   .modal.open{display:flex}
-  .box{background:#fff;border-radius:22px;max-width:520px;width:100%;max-height:88vh;overflow:auto;padding:30px 28px 26px;position:relative;box-shadow:0 30px 70px -20px rgba(20,18,72,.6);animation:pop .22s ease}
+  .box{background:#fff;border-radius:22px;max-width:520px;width:100%;max-height:88vh;max-height:88dvh;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:30px 28px 26px;position:relative;box-shadow:0 30px 70px -20px rgba(20,18,72,.6);animation:pop .22s ease}
   @keyframes pop{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
   .box .x{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;border:0;background:var(--ground);font-size:20px;cursor:pointer;color:var(--navy)}
   .box .bi svg{width:64px;height:64px;display:block}
@@ -196,9 +196,9 @@
     .chip i{flex-basis:26px;height:26px;font-size:14px}
 
     /* ventana tipo hoja inferior */
-    .modal{align-items:flex-end;padding:0}
-    .box{border-radius:22px 22px 0 0;max-height:85vh;padding:26px 20px 30px;animation:up .25s ease}
-    @keyframes up{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+    .modal{align-items:center;padding:14px}
+    .box{border-radius:20px;max-height:82vh;max-height:82dvh;padding:24px 20px 24px}
+    .box .x{position:sticky;top:0;float:right;margin:-8px -6px 0 0;z-index:2}
 
     /* precio */
     .price .row{gap:22px}
@@ -369,18 +369,18 @@
 </div>
 <script>
 (function(){
-  var m=document.getElementById('modal'),bi=m.querySelector('.bi'),t=m.querySelector('h3'),bd=m.querySelector('.bd'),last;
+  var m=document.getElementById('modal'),bi=m.querySelector('.bi'),t=m.querySelector('h3'),bd=m.querySelector('.bd'),last,y=0;
   document.querySelectorAll('button.ben').forEach(function(b){
     b.addEventListener('click',function(){
       last=b;
       bi.innerHTML=b.querySelector('svg').outerHTML;
       t.textContent=b.querySelector('h3').textContent;m.querySelector('.mn').textContent='Beneficio '+b.querySelector('.bn').textContent;
       bd.innerHTML=b.querySelector('.detail').innerHTML;
-      m.classList.add('open');document.body.style.overflow='hidden';
-      m.querySelector('.x').focus();
+      y=window.scrollY;m.classList.add('open');m.querySelector('.box').scrollTop=0;document.body.style.position='fixed';document.body.style.top=(-y)+'px';document.body.style.left='0';document.body.style.right='0';
+      m.querySelector('.x').focus({preventScroll:true});
     });
   });
-  function close(){m.classList.remove('open');document.body.style.overflow='';if(last)last.focus();}
+  function close(){m.classList.remove('open');document.body.style.position='';document.body.style.top='';document.body.style.left='';document.body.style.right='';window.scrollTo(0,y);if(last)last.focus();}
   m.querySelector('.x').addEventListener('click',close);
   m.addEventListener('click',function(e){if(e.target===m)close();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('open'))close();});
