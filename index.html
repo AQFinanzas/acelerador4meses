@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0074)file:///Users/aqfinanzas/Downloads/Acelerador-Excedente-4-meses%20(4).html -->
+<!-- saved from url=(0074)file:///Users/aqfinanzas/Downloads/Acelerador-Excedente-4-meses%20(5).html -->
 <html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -149,11 +149,62 @@
     .topbar .tag{display:none}
     section{padding:50px 0}
   }
-  @media (max-width:520px){
-    .cycle{grid-template-columns:1fr}
+  @media (max-width:600px){
+    body{font-size:16px}
+    .wrap{padding:0 16px}
+    section{padding:44px 0}
+    h2{font-size:26px}
+    .hero{padding:36px 0 34px}
+    .hero h1{font-size:36px}
+    .hero p{font-size:16.5px}
+    .hero .wrap{gap:20px}
+
+    /* ciclo: filas */
+    .cycle{grid-template-columns:1fr;gap:10px;margin-top:28px}
+    .step{display:grid;grid-template-columns:56px 1fr;column-gap:14px;align-items:center;text-align:left;padding:14px 16px}
+    .step svg{width:56px;height:56px;margin:0;grid-row:span 2}
+    .step h3{font-size:16px;align-self:end}
+    .step p{margin:2px 0 0;font-size:14px;align-self:start}
+    .step .num{top:8px;left:auto;right:12px}
     .step::after{display:none!important}
-    .chips{grid-template-columns:1fr}
-    .ben{padding:18px 12px}.ben svg{width:52px;height:52px}
+    .loop{border-radius:16px;font-size:14.5px;padding:12px 16px}
+
+    /* ruta: línea vertical */
+    .road{grid-template-columns:1fr;gap:0;margin-top:30px;text-align:left}
+    .stop{text-align:left;display:grid;grid-template-columns:64px 1fr;column-gap:16px;padding-bottom:22px;position:relative}
+    .stop:not(:last-child)::before{content:"";position:absolute;left:31px;top:64px;bottom:0;border-left:3px dashed #C9D2EC}
+    .stop .dot{width:64px;height:64px;grid-row:span 4;margin:0;border-width:3px}
+    .stop .dot svg{width:32px;height:32px}
+    .stop .m{margin-top:4px}
+    .stop h3{font-size:17px;margin-top:0}
+    .stop p{margin:2px 0 0;max-width:none}
+    .stop .one{justify-self:start;margin-top:8px}
+    .flex-note{margin-top:12px;font-size:14.5px;padding:14px 16px}
+
+    /* beneficios: filas tocables */
+    .grid{grid-template-columns:1fr;gap:10px;margin-top:26px}
+    button.ben{display:grid;grid-template-columns:52px 1fr 22px;column-gap:14px;align-items:center;text-align:left;padding:14px 14px 14px 16px;border-width:1.5px}
+    button.ben svg{width:52px;height:52px;margin:0;grid-row:span 2}
+    button.ben h3{font-size:16px;align-self:end}
+    button.ben p{margin:2px 0 0;font-size:13.5px;align-self:start}
+    button.ben::after{content:"›";grid-column:3;grid-row:1 / span 2;font-size:26px;color:var(--orange);font-weight:700;line-height:1}
+    .bn{top:6px;left:6px;width:22px;height:22px;font-size:10.5px;border:2px solid #fff}
+    .more-hint{display:none}
+    .base{padding:18px 16px;margin-top:28px}
+    .chips{grid-template-columns:1fr 1fr;gap:8px}
+    .chip{font-size:13px;padding:9px 10px;gap:8px}
+    .chip i{flex-basis:26px;height:26px;font-size:14px}
+
+    /* ventana tipo hoja inferior */
+    .modal{align-items:flex-end;padding:0}
+    .box{border-radius:22px 22px 0 0;max-height:85vh;padding:26px 20px 30px;animation:up .25s ease}
+    @keyframes up{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+
+    /* precio */
+    .price .row{gap:22px}
+    .plan{padding:16px 18px}
+    .plan .amt{font-size:24px}
+    .closing{font-size:16.5px;margin-top:28px}
   }
 </style>
 </head>
